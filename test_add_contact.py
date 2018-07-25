@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest
+import unittest
+
 
 def is_alert_present(wd):
     try:
@@ -10,13 +10,13 @@ def is_alert_present(wd):
     except:
         return False
 
-class contacts(unittest.TestCase):
+
+class test_add_contact(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
     
-    def test_contacts(self):
-        success = True
+    def test_add_contact(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
         wd.find_element_by_name("pass").click()
@@ -45,14 +45,10 @@ class contacts(unittest.TestCase):
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         wd.find_element_by_link_text("home page").click()
         wd.find_element_by_link_text("Logout").click()
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").send_keys("\\undefined")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").send_keys("\\undefined")
-        self.assertTrue(success)
-    
+
     def tearDown(self):
         self.wd.quit()
+
 
 if __name__ == '__main__':
     unittest.main()
