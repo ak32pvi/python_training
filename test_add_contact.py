@@ -30,11 +30,11 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
-    def open_contacs_page(self, wd):
+    def open_contacts_page(self, wd):
         wd.find_element_by_link_text("add new").click()
 
     def create_contact(self, wd, contact):
-        self.open_contacs_page(wd)
+        self.open_contacts_page(wd)
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
