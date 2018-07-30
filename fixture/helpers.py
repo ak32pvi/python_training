@@ -7,7 +7,8 @@ class Helpers:
 
     def __init__(self, app):
         self.app = app
-        self.session = SessionHelper(self)
-        self.group = GroupHelper(self)
-        self.contact = ContactHelper(self)
+        self.session = SessionHelper(self.app)
+        self.group = GroupHelper(self.app)
+        self.contact = ContactHelper(self.app)
+
 
