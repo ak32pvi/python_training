@@ -54,7 +54,7 @@ class ContactHelper:
 
     def edit_first_contact(self):
         wd = self.app.wd
-        wd.find_element_by_xpath('//*[@id="maintable"]/tbody/tr[3]/td[8]/a').click()
+        wd.find_element_by_xpath('//div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img').click()
 
     def return_to_contact_page(self):
         wd = self.app.wd
