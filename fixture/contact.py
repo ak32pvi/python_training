@@ -56,22 +56,21 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def modify_first_contact(self, new_contact_data):
+    def modify_first_contact(self):
+        self.modify_contact_by_index(0)
+
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.open_contacts_page()
-        # modify first contact
         wd.find_element_by_link_text("home").click()
-        self.edit_first_contact()
+        self.select_contact_by_index(index)
+        wd.find_elements_by_xpath("//a[contains(@href,'edit.php?id=')]")[index].click()
         # fill changes into the form
         self.fill_contact_form(new_contact_data)
         # submit changes
         wd.find_element_by_name("update").click()
         self.return_to_contact_page()
         self.contact_cache = None
-
-    def edit_first_contact(self):
-        wd = self.app.wd
-        wd.find_element_by_xpath('//div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img').click()
 
     def return_to_contact_page(self):
         wd = self.app.wd
@@ -95,6 +94,3 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id))
         return list(self.contact_cache)
-
-
-
