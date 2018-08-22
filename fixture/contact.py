@@ -156,11 +156,8 @@ class ContactHelper:
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
         secondaryphone = re.search("P: (.*)", text).group(1)
-        email = re.search("@ (.*)", text).group(1)
-        email2 = re.search("@ (.*)", text).group(1)
-        email3 = re.search("@ (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
-                       workphone=workphone, secondaryphone=secondaryphone, email=email, email2=email2, email3=email3)
+                       workphone=workphone, secondaryphone=secondaryphone)
 
 
 
