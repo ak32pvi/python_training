@@ -26,12 +26,21 @@ class ContactHelper:
         self.change_field_value("firstname", contact.firstname)
         self.change_field_value("middlename", contact.middlename)
         self.change_field_value("lastname", contact.lastname)
+        self.change_field_value("nickname", contact.nickname)
+        self.change_field_value("company", contact.company)
         self.change_field_value("title", contact.title)
         self.change_field_value("address", contact.address)
         self.change_field_value("home", contact.homephone)
         self.change_field_value("mobile", contact.mobilephone)
         self.change_field_value("work", contact.workphone)
+        self.change_field_value("fax", contact.fax)
+
+        self.change_field_value("homepage", contact.homepage)
+        self.change_field_value("byear", contact.byear)
+        self.change_field_value("ayear", contact.ayear)
+        self.change_field_value("address2", contact.address2)
         self.change_field_value("phone2", contact.secondaryphone)
+        self.change_field_value("notes", contact.notes)
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
