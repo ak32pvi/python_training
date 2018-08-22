@@ -9,8 +9,9 @@ def test_modify_first_contact_firstname(app):
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
     contact = Contact(firstname="Robert", middlename="Mozart", lastname="Volf", nickname="anonymous", company="google", title="title", address="ourcountry",
-                      homephone="12345", mobilephone="84633", workphone="123456", secondaryphone="09909", fax="77777", homepage="homepage field", byear="1988", ayear="2018",
-                      address2="Earth", notes="Hello world!")
+                      homephone="12345", mobilephone="84633", workphone="123456", secondaryphone="09909", fax="77777",
+                      email="abc@gmail.com", email2="support@gmail.com", email3="contact@gmail.com", homepage="homepage field", byear="1988",
+                      ayear="2018", address2="Earth", notes="Hello world!")
     contact.id = old_contacts[index].id
     app.contact.modify_contact_by_index(index, contact)
     new_contacts = app.contact.get_contact_list()
