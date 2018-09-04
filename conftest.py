@@ -4,7 +4,7 @@ import os.path
 import importlib
 import jsonpickle
 from fixture.application import Application
-import from fixture.db import DbFixture
+from fixture.db import DbFixture
 
 
 fixture = None
@@ -18,6 +18,7 @@ def load_config(file):
         with open(config_file) as f:
             target = json.load(f)
     return target
+
 
 @pytest.fixture
 def app(request):
