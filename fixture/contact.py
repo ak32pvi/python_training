@@ -183,5 +183,24 @@ class ContactHelper:
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
 
+    def add_to_group(self, group_id, contact_id):
+        wd = self.app.wd
+        self.select_contact_by_id(contact_id)
+        self.select_group_in_dropdown(group_id)
+        wd.find_element_by_name("add").click()
+        self.app.open_home_page()
 
+    def select_group_in_dropdown(self, id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//select[@name='to_group']//option[@value='%s']" % id).click()
 
+    def choose_group(self, id):
+        wd = self.app.wd
+        wd.find_element_by_name("group").click()
+        wd.find_element_by_xpath("//select[@name='group']//option[@value='%s']" % id).click()
+
+    def del_contact_from_group(self, group_id, contact_id):
+        wd = self.app.wd
+        self.choose_group(group_id)
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_xpath("//input[@name='remove']").click()
