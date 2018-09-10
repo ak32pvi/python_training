@@ -26,6 +26,9 @@ class ORMFixture:
         groups = Set(lambda: ORMFixture.ORMGroup, table="address_in_groups", column="group_id", reverse="contacts", lazy=True)
 
     def __init__(self, host, name, user, password): #привязка к базе данных
+        conv = encoders
+        conv.update(decoders)
+        conv[datetime] = convert_mysql_timestamp
         self.db.bind('mysql', host=host, database=name, user=user, password=password, conv=decoders)
         self.db.generate_mapping() #происходит сопоставление св-в описанных классов с таблицами и полями этих таблиц
         sql_debug(True)
