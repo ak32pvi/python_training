@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.6 (python_training)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="ironpython_training" />
+    <orderEntry type="module" module-name="ironpython_training" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="" />
