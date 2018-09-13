@@ -38,3 +38,4 @@ def merge_phones_like_on_home_page(contact):
                             map(lambda x: clear_for_phones(x),
                                 filter(lambda x: x is not None,
                                         [contact.home, contact.mobile, contact.work, contact.phone2]))))
+
